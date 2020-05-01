@@ -1,0 +1,45 @@
+
+
+service: sls-apigateway-basic
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          method: get
+          path: hello
+  create:
+    handler: handler.create
+    events:
+      - http:
+          method: post
+          path: create
+  search:
+    handler: handler.search
+    events:
+      - http:
+          method: get
+          path: search/{email}
+  upload:
+    handler: handler.upload
+    events:
+      - http:
+          method: post
+          path: upload
+  download:
+    handler: handler.download
+    events:
+      - http:
+          method: get
+          path: download/{email}
+  update:
+    handler: handler.update
+    events:
+      - http:
+          method: post
+          path: update
